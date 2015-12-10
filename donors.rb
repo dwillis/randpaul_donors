@@ -31,6 +31,9 @@ loop do
         row << [date.to_s, r.response['date'], recent_donor['first_name'], recent_donor['last_name'], recent_donor['address']]
       end
     end
+    system 'git add csv/'
+    system "git commit -m 'updated from #{r.response['date']}'"
+    system 'git push origin master'
   end
   sleep(60)
 end
