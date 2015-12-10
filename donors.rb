@@ -5,7 +5,7 @@ require 'date'
 
 loop do
   date = Date.today
-  r = HTTParty.get("https://secure.randpaul.com/ticker/ticker.php")
+  r = HTTParty.get("https://secure.candopolitics.com/tools/api/v2/ticker/66932941b0a2b7ce04620a2615d278f8604f6c20")
   summary_file = "csv/#{date.to_s.gsub('-','')}_summary.csv"
   donor_file = "csv/#{date.to_s.gsub('-','')}_donors.csv"
   if r.parsed_response
