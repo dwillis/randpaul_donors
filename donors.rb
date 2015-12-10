@@ -27,7 +27,7 @@ loop do
       dh = true
     end
     CSV.open(donor_file, "a+", :write_headers => dh, :headers => ['date','datetime','first_name','last_name','address']) do |row|
-      r.parsed_response['recent_donors'].each do |recent_donor|
+      r.parsed_response['data']['recent_donors'].each do |recent_donor|
         row << [date.to_s, r.response['date'], recent_donor['first_name'], recent_donor['last_name'], recent_donor['address']]
       end
     end
