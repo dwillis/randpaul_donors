@@ -17,7 +17,7 @@ loop do
       sh = true
     end
     CSV.open(summary_file, "a+", :write_headers => sh, :headers => ['date','datetime','total_donors','total_amount','start']) do |row|
-      row << [date.to_s, r.response['date'], r.parsed_response['total_donors'], r.parsed_response['total_amount'], r.parsed_response['start']]
+      row << [date.to_s, r.response['date'], r.parsed_response['data']['total_donors'], r.parsed_response['data']['total_amount'], r.parsed_response['data']['start']]
     end
     begin
       f = File.open(donor_file)
